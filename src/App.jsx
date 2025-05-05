@@ -28,7 +28,7 @@ const App = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="/exchange-rates" element={<ExchangeRates />} />
           {/* <Route path="/about" element={<About />} />
-          <Route path="/exchange-rates" element={<ExchangeRates />} />
+          
           <Route path="*" element={<ErrorPage />} /> */}
         </Routes>
       </ThemeProvider>

@@ -1,4 +1,3 @@
-// src/components/Dashboard.jsx
 import React, { useState } from "react";
 import {
   Box,
@@ -26,6 +25,8 @@ const Dashboard = () => {
   const [monthlyEMI, setMonthlyEMI] = useState(null);
   const [schedule, setSchedule] = useState([]);
   const [currency, setCurrency] = useState("USD");
+
+  const supportedCurrencies = ["USD", "EUR", "INR", "GBP", "JPY", "AUD", "CAD"];
 
   const calculateEMI = () => {
     const P = parseFloat(loanAmount);
@@ -130,9 +131,11 @@ const Dashboard = () => {
                   label="Currency"
                   onChange={(e) => setCurrency(e.target.value)}
                 >
-                  <MenuItem value="USD">USD</MenuItem>
-                  <MenuItem value="INR">INR</MenuItem>
-                  <MenuItem value="EUR">EUR</MenuItem>
+                  {supportedCurrencies.map((curr) => (
+                    <MenuItem key={curr} value={curr}>
+                      {curr}
+                    </MenuItem>
+                  ))}
                 </Select>
               </FormControl>
             </Box>
