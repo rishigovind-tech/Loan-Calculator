@@ -158,10 +158,10 @@ const Dashboard = () => {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Month</TableCell>
-                  <TableCell>Principal</TableCell>
-                  <TableCell>Interest</TableCell>
-                  <TableCell>Remaining Balance</TableCell>
+                  <TableCell>MONTH</TableCell>
+                  <TableCell>PRINCIPAL</TableCell>
+                  <TableCell>INTEREST</TableCell>
+                  <TableCell>BALANCE</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
