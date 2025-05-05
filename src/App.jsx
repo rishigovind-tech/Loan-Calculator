@@ -6,9 +6,18 @@ import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
 import { Route, Routes } from "react-router-dom";
 import ThemeContext from "./context/ThemeContext";
-// import About from "./components/About"; // Optional future route
 import ExchangeRates from "./components/ExchangeRates";
-// import ErrorPage from "./components/ErrorPage";
+import ErrorPage from "./components/ErrorPage"; 
+import About from "./components/About";
+import { Navigate } from "react-router-dom";
+
+
+const MainLayout = ({ children }) => (
+  <>
+    <Navbar />
+    {children}
+  </>
+);
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -23,13 +32,34 @@ const App = () => {
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Navbar />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/exchange-rates" element={<ExchangeRates />} />
-          {/* <Route path="/about" element={<About />} />
-          
-          <Route path="*" element={<ErrorPage />} /> */}
+          <Route
+            path="/"
+            element={
+              <MainLayout>
+                <Dashboard />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/exchange-rates"
+            element={
+              <MainLayout>
+                <ExchangeRates />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <MainLayout>
+                <About />
+              </MainLayout>
+            }
+          />
+          <Route path="/error" element={<ErrorPage />} />
+          {/* Redirect undefined routes to /error */}
+          <Route path="*" element={<Navigate to="/error" replace />} />
         </Routes>
       </ThemeProvider>
     </ThemeContext.Provider>
