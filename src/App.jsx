@@ -7,7 +7,7 @@ import Dashboard from "./components/Dashboard";
 import { Route, Routes } from "react-router-dom";
 import ThemeContext from "./context/ThemeContext";
 // import About from "./components/About"; // Optional future route
-// import ExchangeRates from "./components/ExchangeRates";
+import ExchangeRates from "./components/ExchangeRates";
 // import ErrorPage from "./components/ErrorPage";
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/exchange-rates" element={<ExchangeRates />} />
           {/* <Route path="/about" element={<About />} />
           <Route path="/exchange-rates" element={<ExchangeRates />} />
           <Route path="*" element={<ErrorPage />} /> */}
